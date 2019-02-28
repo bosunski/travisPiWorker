@@ -1,0 +1,7 @@
+{
+    "require": {
+        "php-amqplib/php-amqplib": ">=2.6.1",
+        "ronanguilloux/php-gpio": "^1.0",
+        "piphp/gpio": "^0.3.3"
+    }
+}
