@@ -12,10 +12,10 @@
     $redPin = $io->getOutputPin(19);
     $greenPin = $io->getOutputPin(16);
 
-	$connection = new AMQPStreamConnection('192.168.8.100', 5672, 'bosunski', 'gabriel10');
+	$connection = new AMQPStreamConnection('157.230.183.190', 5672, 'bosunski', 'gabriel10');
 	$channel = $connection->channel();
 
-	$channel->queue_declare('ledAction', false, false, false, false);
+//	$channel->queue_declare('travisStatus', false, false, false, false);
 
 	echo "[*] Waiting for messages. To exit press CTRL+C\n";
 
@@ -28,7 +28,7 @@
 
     $handleReceivedMessage = function ($msg) use ($yellowPin, $greenPin, $redPin, $resetLEDs) {
         switch ($msg) {
-            case 'pending':
+            case 'started':
                 $resetLEDs();
                 $yellowPin->setValue(PinInterface::VALUE_HIGH);
                 break;
