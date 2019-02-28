@@ -15,8 +15,6 @@
 	$connection = new AMQPStreamConnection('157.230.183.190', 5672, 'bosunski', 'gabriel10');
 	$channel = $connection->channel();
 
-//	$channel->queue_declare('travisStatus', false, false, false, false);
-
 	echo "[*] Waiting for messages. To exit press CTRL+C\n";
 
 	$resetLEDs = function () use ($yellowPin, $greenPin, $redPin) {
